@@ -26,8 +26,10 @@ It does NOT use a prebuilt Minecraft Docker image. The official server JAR is do
 ## Quickstart
 1) Insert the official Minecraft server.jar URL into `docker-compose.yaml` under `MC_SERVER_JAR_URL`.
 2) Build & start:
-```bash
+
+```
 docker compose up --build
+```
 
 ## Usage
 
@@ -57,16 +59,21 @@ This ensures data is not lost after container restarts.
 
 Troubleshooting
 . Check logs:
+
 ```
-docker compose logs -f ```
+docker compose logs -f
+```
 
 . Rebuild after changing the jar URL:
 ```
-docker compose up --build ```
+docker compose up --build
+ ```
 
 . Verify container is runing:
+
 ```
-docker ps ```
+docker ps
+ ```
 
 
 ## Security Notes 
@@ -78,32 +85,43 @@ docker ps ```
 ## Build & Run
 
 ```
-docker compose up --build ```
+docker compose up --build
+```
 
 Check availability:
 curl -I http://localhost:8888 || true
 
 Minecraft is not an HTTP service, so curl isn't perfect – better:
+
 ```
-docker compose logs -f ```
+docker compose logs -f
+```
 
 Server = Done
 
 Test persistence
  Run the server once (the world will be created)
  Stop:
+
  ```
-docker compose down ```
+docker compose down
+```
  Start:
+
  ```
-docker compose up ```
+docker compose up
+```
 
  Restart-Policy Test
  Server Kill:
+
  ```
-docker kill mc-server ```
+docker kill mc-server
+```
+
  ```
-docker ps ```
+docker ps
+```
 
  The container should restart automatically (restart: unless-stopped).
 
@@ -111,11 +129,14 @@ docker ps ```
 ##Initialize Git (repository check)
 
 ``` 
-git init ```
+git init
+```
 
 ```
-git add . ```
+git add .
+```
 
 ```
-git commit -m "Initial Minecraft server container setup" ```
+git commit -m "Initial Minecraft server container setup"
+```
 
