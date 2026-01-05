@@ -57,15 +57,16 @@ This ensures data is not lost after container restarts.
 
 Troubleshooting
 . Check logs:
-```bash
-docker compose logs -f
+```
+docker compose logs -f ```
 
 . Rebuild after changing the jar URL:
-docker compose up --build 
+```
+docker compose up --build ```
 
 . Verify container is runing:
-```bash
-docker ps 
+```
+docker ps ```
 
 
 ## Security Notes 
@@ -76,42 +77,45 @@ docker ps
 
 ## Build & Run
 
-```bash
-docker compose up --build
+```
+docker compose up --build ```
 
 Check availability:
 curl -I http://localhost:8888 || true
 
 Minecraft is not an HTTP service, so curl isn't perfect – better:
-```bash
-docker compose logs -f 
+```
+docker compose logs -f ```
 
 Server = Done
 
 Test persistence
  Run the server once (the world will be created)
  Stop:
- ```bash
-docker compose down
+ ```
+docker compose down ```
  Start:
- ```bash
-```bash
-docker compose up
+ ```
+docker compose up ```
 
  Restart-Policy Test
  Server Kill:
- ```bash
-docker kill mc-server
- ```bash
-docker ps
+ ```
+docker kill mc-server ```
+ ```
+docker ps ```
 
  The container should restart automatically (restart: unless-stopped).
 
 
 ##Initialize Git (repository check)
 
-git init
-git add .
-git commit -m "Initial Minecraft server container setup"
+``` 
+git init ```
 
+```
+git add . ```
+
+```
+git commit -m "Initial Minecraft server container setup" ```
 
