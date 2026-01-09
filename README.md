@@ -1,8 +1,8 @@
 
 # minecraft-server
 Minecraft Java Edition server running in Docker using a custom Dockerfile and docker-compose setup with persistent world data.
-
-# Minecraft Server (Dockerized)
+This repository provides a self-built Docker image and docker-compose setup for a Minecraft Java server.
+It does NOT use a prebuilt Minecraft Docker image. The official server JAR is downloaded during image build.
 
 ## Table of Contents
 - [Description](#description)
@@ -14,14 +14,10 @@ Minecraft Java Edition server running in Docker using a custom Dockerfile and do
 - [Troubleshooting](#troubleshooting)
 - [Security Notes](#security-notes)
 
-## Description
-This repository provides a self-built Docker image and docker-compose setup for a Minecraft Java server.
-It does NOT use a prebuilt Minecraft Docker image. The official server JAR is downloaded during image build.
 
 ## Requirements
 - Docker
 - Docker Compose
-- Java is provided by the Docker image (Eclipse Temurin 21)
 
 ## Quickstart
 1) Insert the official Minecraft server.jar URL into `docker-compose.yaml` under `MC_SERVER_JAR_URL`.
@@ -33,11 +29,20 @@ docker compose up --build
 
 ## Usage
 
-.Server will be reachable via:
- . <YOU_VM_IP>:8888
+1. Clone repository
+```
+git clone https://github.com/<thkbprbxyg-maker
+>/minecraft-server.git
+cd minecraft-server
+```
 
-.if you test locally:
- . localhost:8888
+Server will be reachable via:
+ ```
+ <YOU_VM_IP>:8888
+```
+
+if you test locally:
+ . localhost:http://your_ip:8888
 
 
  ## Configuration 
@@ -64,12 +69,12 @@ Troubleshooting
 docker compose logs -f
 ```
 
-. Rebuild after changing the jar URL:
+ Rebuild after changing the jar URL:
 ```
 docker compose up --build
  ```
 
-. Verify container is runing:
+ Verify container is runing:
 
 ```
 docker ps
@@ -89,7 +94,9 @@ docker compose up --build
 ```
 
 Check availability:
+```
 curl -I http://localhost:8888 || true
+```
 
 Minecraft is not an HTTP service, so curl isn't perfect – better:
 
@@ -126,19 +133,7 @@ docker ps
  The container should restart automatically (restart: unless-stopped).
 
 
-##Initialize Git (repository check)
-
-``` 
-git init
-```
-
-```
-git add .
-```
-
-```
-git commit -m "Initial Minecraft server container setup"
-```
 
 
-Future branch test commit
+
+
