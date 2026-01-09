@@ -1,4 +1,4 @@
-version: "3.8"
+version: 
 
 services:
   mc-server:
@@ -6,7 +6,8 @@ services:
       context: .
       args:
         # IMPORTANT: Insert the official server.jar URL here (see README)
-        MC_SERVER_JAR_URL: "https://piston-data.mojang.com/v1/objects/64bb6d763bed0a9f1d632ec347938594144943ed/server.jar"
+        environment:
+  MC_SERVER_JAR_URL: "https://piston-data.mojang.com/v1/objects/....../server.jar"
     container_name: mc-server
     ports:
       - "8888:25565"
