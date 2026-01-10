@@ -1,0 +1,22 @@
+version: 
+
+services:
+  mc-server:
+    build:
+      context: .
+      args:
+        # IMPORTANT: Insert the official server.jar URL here (see README)
+        environment:
+  MC_SERVER_JAR_URL: "https://piston-data.mojang.com/v1/objects/....../server.jar"
+    container_name: mc-server
+    ports:
+      - "8888:25565"
+    environment:
+      MC_MEMORY: "2G"
+      MC_PORT: "25565"
+    volumes:
+      - mc-data:/minecraft
+    restart: unless-stopped
+
+volumes:
+  mc-data:
