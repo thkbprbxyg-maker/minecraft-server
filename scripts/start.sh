@@ -1,9 +1,6 @@
 #!/bin/sh
 set -eu
 
-: MC_MEMORY:="2G"
-: MC_PORT:="25565"
-: MC_JAR_NAME:="server.jar"
 
 echo "Starting Minecraft Server..."
 echo "Memory: MC_MEMORY
