@@ -20,14 +20,6 @@ It does NOT use a prebuilt Minecraft Docker image. The official server JAR is do
 - Docker Compose
 
 ## Quickstart
-1) Insert the official Minecraft server.jar URL into `docker-compose.yaml` under `MC_SERVER_JAR_URL`.
-2) Build & start:
-
-```
-docker compose up --build
-```
-
-## Usage
 
 1. Clone repository
 ```
@@ -36,13 +28,20 @@ git clone https://github.com/<thkbprbxyg-maker
 cd minecraft-server
 ```
 
-Server will be reachable via:
- ```
- <YOU_VM_IP>:8888
+2) Insert the official Minecraft server.jar URL into `docker-compose.yaml` under `MC_SERVER_JAR_URL`.
+3) Build & start:
+
+```
+docker compose up --build
 ```
 
-if you test locally:
- . localhost:http://your_ip:8888
+## Usage
+
+Server will be reachable via:
+ ```
+ better http://<YOUR_IP>:8888
+```
+
 
 
  ## Configuration 
@@ -57,7 +56,7 @@ if you test locally:
  MC_PORT: "25565" 
 
 
-##Persistence
+## Persistence
 
 All server data (world, configs, etc.) is stored in the Docker volume mc-data, mounted to /minecraft.
 This ensures data is not lost after container restarts.
@@ -83,8 +82,8 @@ docker ps
 
 ## Security Notes 
 
-. Do not commit secrets, tokens, passwords, SSH keys, or IP addresse to the repository.
-. Use environment variables or .env (ignored by git) if needed
+ Do not commit secrets, tokens, passwords, SSH keys, or IP addresse to the repository.
+ Use environment variables or .env (ignored by git) if needed
 
 
 ## Build & Run
