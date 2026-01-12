@@ -22,11 +22,26 @@ It does NOT use a prebuilt Minecraft Docker image. The official server JAR is do
 ## Quickstart
 
 1. Clone repository
-```
+```   
 git clone https://github.com/<thkbprbxyg-maker
 >/minecraft-server.git
 cd minecraft-server
 ```
+
+Create .env file
+
+Create a .env file in the project root with the following content:
+MC_MEMORY=2G
+MC_PORT=25565
+MC_SERVER_JAR_URL=https://piston-data.mojang.com/v1/objects/<HASH>/server.jar
+
+Start the server:
+```
+docker compose up --build
+```
+
+Note:
+The .env file is not committed to the repository and must be created manually.
 
 2) Insert the official Minecraft server.jar URL into `docker-compose.yaml` under `MC_SERVER_JAR_URL`.
 3) Build & start:
