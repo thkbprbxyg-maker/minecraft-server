@@ -1,0 +1,18 @@
+
+    build:
+      context: .
+      args:
+        # IMPORTANT: Insert the official server.jar URL here (see README)
+        MC_SERVER_JAR_URL: ${MC_SERVER_JAR_URL}
+    container_name: mc-server
+    ports:
+      - "8888:25565"
+    environment:
+      MC_MEMORY: "2G"
+      MC_PORT: "25565"
+    volumes:
+      - mc-data:/minecraft
+    restart: unless-stopped
+
+volumes:
+  mc-data:
