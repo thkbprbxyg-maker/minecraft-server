@@ -7,9 +7,8 @@
     container_name: mc-server
     ports:
       - "8888:25565"
-    environment:
-      MC_MEMORY: "2G"
-      MC_PORT: "25565"
+    env_file:
+      - .env
     volumes:
       - mc-data:/minecraft
     restart: unless-stopped
