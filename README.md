@@ -21,90 +21,55 @@ It does NOT use a prebuilt Minecraft Docker image. The official server JAR is do
 ## Quickstart
 
 1. Clone repository
-```   
-git clone https://github.com/<thkbprbxyg-maker
->/minecraft-server.git
+
+```bash
+git clone https://github.com/thkbprbxyg-maker/minecraft-server.git
 cd minecraft-server
 ```
 
-Create .env file
+2. Create  `.env` file from `example.env` :
 
-Create a .env file in the project root with the following content:
-MC_MEMORY=2G
-MC_PORT=25565
-MC_SERVER_JAR_URL=https://piston-data.mojang.com/v1/objects/<HASH>/server.jar
-
-Start the server:
+```bash
+cp example.env .env
 ```
+
+> [!IMPORTANT]
+> You must edit the `.env` file and adjust the values to your own setup.
+The `.env` file should not be committed to the repository and may contain sensitive values.
+
+
+3. Start the server:
+
+```bash
 docker compose up --build
 ```
 
-Note:
-The .env file is not committed to the repository and must be created manually.
-
-2) Insert the official Minecraft server.jar URL into `docker-compose.yaml` under `MC_SERVER_JAR_URL`.
-3) Build & start:
-
-### 1. Clone the repository
-```bash
-git clone git@github.com:thkbprbxyg-maker/minecraft-server.git
-cd minecraft-server
-```
-
-2. Create your .env file
-
-This project uses environment variables for configuration.
-
-An example file is provided:
-```
-cp example.env .env 
-```
-Important:
-You must edit the .env file and adjust the values to your own setup.
-The .env file is not committed to the repository and may contain sensitive values.
-
-Example .env:
-```
-MC_MEMORY=2G
-MC_PORT=25565
-MC_SERVER_JAR_URL=https://piston-data.mojang.com/...
-```
-
-3. Build and start the server
-```
-docker compose up --build 
-```
 The Minecraft server will start automatically inside a Docker container.
 
 4. Connect to the server
-	•	Local setup:
-localhost:25565
-	•	Remote server:
-<YOUR_SERVER_IP>:25565
+- Local setup:localhost:25565
+- Remote server:<YOUR_SERVER_IP>:25565
 (Make sure the port is open in your firewall)
 
-Use Minecraft Java Edition to connect.
+5. Use Minecraft Java Edition to connect.
+
+![Minecraft Java – Direct Server Connection](screenshots/minecraft-java-connect.png)
 
 
 ## Usage
 
-Server will be reachable via:
- ```
- better http://<YOUR_IP>:8888
-```
-
-
-
  ## Configuration 
 
  Environment variables (defaults):
- . MC_MEMORY (default: 2G)
- . MC_PORT (default: 25565)
+- MC_MEMORY (default: 2G)
+- MC_PORT (default: 25565)
+- MC_JAR_URL (default: https://launcher.mojang.com/v1/objects/fe3f2e6f1f3b5e3c3c3c3c3c3c3c3c3c3c/server.jar)
 
  You can change them in docker-compose.yaml:
  Environment:
  MC_MEMORY: "4G"
- MC_PORT: "25565" 
+ MC_PORT: "25565"
+
 
 
 ## Persistence
@@ -112,21 +77,23 @@ Server will be reachable via:
 All server data (world, configs, etc.) is stored in the Docker volume mc-data, mounted to /minecraft.
 This ensures data is not lost after container restarts.
 
-Troubleshooting
-. Check logs:
+## Troubleshooting
 
-```
+Check logs:
+
+```bash
 docker compose logs -f
 ```
 
  Rebuild after changing the jar URL:
-```
+
+```bash
 docker compose up --build
  ```
 
  Verify container is runing:
 
-```
+```bash
 docker ps
  ```
 
@@ -139,18 +106,19 @@ docker ps
 
 ## Build & Run
 
-```
+```bash
 docker compose up --build
 ```
 
 Check availability:
-```
+
+```bash
 curl -I http://<your_ip>:8888 || true
 ```
 
 Minecraft is not an HTTP service, so curl isn't perfect – better:
 
-```
+``` bash
 docker compose logs -f
 ```
 
@@ -160,23 +128,23 @@ Test persistence
  Run the server once (the world will be created)
  Stop:
 
- ```
+ ```bash
 docker compose down
 ```
  Start:
 
- ```
+ ```bash
 docker compose up
 ```
 
  Restart-Policy Test
  Server Kill:
 
- ```
+ ```bash
 docker kill mc-server
 ```
 
- ```
+ ```bash
 docker ps
 ```
 
