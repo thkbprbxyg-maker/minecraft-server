@@ -3,9 +3,9 @@ set -eu
 
 
 echo "Starting Minecraft Server..."
-echo "Memory: MC_MEMORY
-echo "Port:   MC_PORT
-echo "Jar:    MC_JAR_NAME
+echo "Memory: ${MC_MEMORY}"
+echo "Port:   ${MC_PORT}"
+echo "Jar:    ${MC_JAR_NAME}"
 
 # Ensure server.properties exists and has the right port (first run)
 if [ -f server.properties ]; then

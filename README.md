@@ -5,8 +5,7 @@ This repository provides a self-built Docker image and docker-compose setup for 
 It does NOT use a prebuilt Minecraft Docker image. The official server JAR is downloaded during image build.
 
 ## Table of Contents
-- [Description](#description)
-- [Requirements](#requirements)
+- [Prerequisites](#prerequisites)
 - [Quickstart](#quickstart)
 - [Usage](#usage)
 - [Configuration](#configuration)
@@ -15,7 +14,7 @@ It does NOT use a prebuilt Minecraft Docker image. The official server JAR is do
 - [Security Notes](#security-notes)
 
 
-## Requirements
+## Prerequisites
 - Docker
 - Docker Compose
 
@@ -146,7 +145,7 @@ docker compose up --build
 
 Check availability:
 ```
-curl -I http://localhost:8888 || true
+curl -I http://<your_ip>:8888 || true
 ```
 
 Minecraft is not an HTTP service, so curl isn't perfect – better:
